@@ -1,0 +1,17 @@
+A pipeline that loses a frame should not lose the session. The decoder keeps a small ring buffer, hunts for the next flag byte, and proves each candidate frame with a sixteen bit checksum before it trusts the payload. When the checksum fails the scanner advances one byte and tries again, because a payload may contain the flag byte itself.
+
+Framing is the cheapest reliability you will ever buy. A length prefix tells the receiver how many bytes to expect, and a checksum tells it whether those bytes arrived intact. Together they turn a silent corruption into a countable event, and countable events can be logged, charted, and fixed.
+
+Consider a sensor node on a long cable. Most of the time the link is quiet and correct. Occasionally an edge is lost to heat, or the ground shifts, and one byte in ten thousand flips. The receiver does not know which byte, so it discards the frame and asks for the next one. The question that matters is not whether the link broke but how many bytes the recovery cost.
+
+A good decoder reports three numbers: frames recovered, candidate frames rejected, and bytes thrown away while resynchronising. Without the third number an operator cannot tell a healthy link from a link that is losing a fifth of every second. With it, the trend is obvious long before the retry counter looks alarming.
+
+Backup tools face a similar problem with a different flavour. A file changes in one place, and the tool must decide which pieces of it are new. Fixed size chunking is simple and fast, but a single inserted byte shifts every boundary after it, so every later chunk looks new even though its contents are unchanged. Content defined chunking hashes a rolling window and cuts where the hash matches a pattern, which keeps boundaries stable across insertions.
+
+The trade is explicit. Content defined chunking does more work per byte and produces chunks of uneven size, while fixed chunking is trivial to implement and gives perfectly predictable sizes. On a corpus that never changes, fixed chunking wins on every axis. On a corpus edited daily, the stable boundaries pay for themselves immediately.
+
+Tokenizers have their own coverage question. A word level vocabulary is small in tokens per word and enormous in symbols, and it fails completely on a word it has never seen. A character level vocabulary never fails and spends a token on every letter. Subword methods sit between the two, learning frequent fragments so that a common word costs one token and a rare one costs a few.
+
+The measurement that makes this concrete is tokens per word on held out text, plus how much of the learned vocabulary actually fires. A vocabulary that grows quickly at first and then stops helping is telling you something: the extra symbols are no longer earning their place in the model.
+
+Every one of these systems is judged the same way. Pick a number that an operator can reason about, measure it on something that resembles production, and publish the measurement next to the design. A design without a number is only an opinion, and opinions do not survive the first incident review.

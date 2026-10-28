@@ -1,0 +1,3 @@
+A pipeline that loses a frame should not lose the session. The decoder hunts for the flag byte and proves each candidate with a checksum. A sensor node on a long cable loses an edge to heat and one byte in ten thousand flips. The receiver discards the frame and asks for the next one.
+
+Backup tools face a similar problem. A file changes in one place and the tool must decide which pieces are new. Fixed size chunking shifts every boundary after an insertion, so every later chunk looks new. Content defined chunking cuts where a rolling hash matches, which keeps boundaries stable.

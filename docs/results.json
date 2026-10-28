@@ -1,0 +1,123 @@
+{
+  "corpus_chars": 3100,
+  "heldout_words": 104,
+  "sweep": [
+    {
+      "name": "bpe-300",
+      "tokens": 227,
+      "words": 104,
+      "chars": 478,
+      "vocab_size": 300,
+      "vocab_used": 127,
+      "tokens_per_word": 2.1827,
+      "chars_per_token": 2.1057,
+      "utilisation": 0.4233,
+      "vocab": 300,
+      "merges_fired": 105
+    },
+    {
+      "name": "bpe-400",
+      "tokens": 198,
+      "words": 104,
+      "chars": 478,
+      "vocab_size": 400,
+      "vocab_used": 124,
+      "tokens_per_word": 1.9038,
+      "chars_per_token": 2.4141,
+      "utilisation": 0.31,
+      "vocab": 400,
+      "merges_fired": 106
+    },
+    {
+      "name": "bpe-600",
+      "tokens": 168,
+      "words": 104,
+      "chars": 478,
+      "vocab_size": 600,
+      "vocab_used": 113,
+      "tokens_per_word": 1.6154,
+      "chars_per_token": 2.8452,
+      "utilisation": 0.1883,
+      "vocab": 600,
+      "merges_fired": 97
+    },
+    {
+      "name": "bpe-800",
+      "tokens": 131,
+      "words": 104,
+      "chars": 478,
+      "vocab_size": 800,
+      "vocab_used": 104,
+      "tokens_per_word": 1.2596,
+      "chars_per_token": 3.6489,
+      "utilisation": 0.13,
+      "vocab": 800,
+      "merges_fired": 96
+    },
+    {
+      "name": "bpe-883",
+      "tokens": 117,
+      "words": 104,
+      "chars": 478,
+      "vocab_size": 883,
+      "vocab_used": 90,
+      "tokens_per_word": 1.125,
+      "chars_per_token": 4.0855,
+      "utilisation": 0.1019,
+      "vocab": 883,
+      "merges_fired": 87
+    }
+  ],
+  "comparison": [
+    {
+      "name": "char-level",
+      "tokens": 478,
+      "words": 104,
+      "chars": 478,
+      "vocab_size": 31,
+      "vocab_used": 31,
+      "tokens_per_word": 4.5962,
+      "chars_per_token": 1.0,
+      "utilisation": 1.0
+    },
+    {
+      "name": "word-level",
+      "tokens": 104,
+      "words": 104,
+      "chars": 478,
+      "vocab_size": 79,
+      "vocab_used": 79,
+      "tokens_per_word": 1.0,
+      "chars_per_token": 4.5962,
+      "utilisation": 1.0
+    },
+    {
+      "name": "bpe-600",
+      "tokens": 168,
+      "words": 104,
+      "chars": 478,
+      "vocab_size": 600,
+      "vocab_used": 113,
+      "tokens_per_word": 1.6154,
+      "chars_per_token": 2.8452,
+      "utilisation": 0.1883
+    }
+  ],
+  "sample_tokens": [
+    "the</w>",
+    "decoder</w>",
+    "hunts</w>",
+    "for</w>",
+    "the</w>",
+    "flag</w>",
+    "byte</w>",
+    "and</w>",
+    "proves</w>",
+    "each</w>",
+    "candidate</w>",
+    "frame</w>",
+    "with</w>",
+    "a</w>",
+    "checksum</w>"
+  ]
+}
